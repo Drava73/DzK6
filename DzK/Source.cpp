@@ -26,7 +26,7 @@ void SaveDate::Setdate(int a)
 
 void SaveDate::Inputdate() 
 {
-	cout << endl << "Input date";
+	cout << endl << "Input date: ";
 	cin >> date;
 }
 
@@ -34,6 +34,7 @@ int main()
 {
 
 
-
+	SaveDate obj1;
+	obj1.Inputdate();
 
 }
