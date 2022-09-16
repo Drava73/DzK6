@@ -11,12 +11,44 @@ public:
 	SaveDate(int dateN) { date = dateN; }
 	friend SaveDate operator+(const SaveDate& dateN, int value);
 	friend SaveDate operator-(const SaveDate& dateN, int value);
+	SaveDate operator++(void);
+	SaveDate operator++(int d);
+	SaveDate operator--(void);
+	SaveDate operator--(int d);
 	int Getdate()const;
-	void Setdate(int a);
-	void Inputdate();
+		void Inputdate();
 	void Outputdate();
+
 	
 };
+
+
+
+
+SaveDate SaveDate::operator++(void)
+{
+	date++;
+	return *this;
+}
+
+SaveDate SaveDate::operator++(int d)
+{
+	date++;
+	return *this;
+}
+
+SaveDate SaveDate::operator--(void)
+{
+	date--;
+	return *this;
+}
+
+SaveDate SaveDate::operator--(int d)
+{
+	date--;
+	return *this;
+}
+
 
 SaveDate operator+(const SaveDate& dateN, int value)
 {
@@ -33,10 +65,7 @@ int SaveDate::Getdate() const
 	return 0;
 }
 
-void SaveDate::Setdate(int a)
-{
 
-}
 
 void SaveDate::Inputdate() 
 {
@@ -51,6 +80,8 @@ void SaveDate::Outputdate()
 
 
 
+
+
 int main()
 {
 
@@ -60,6 +91,8 @@ int main()
 	obj2.Outputdate();
 	SaveDate obj3 = obj2 - 1;
 	obj3.Outputdate();
+	SaveDate obj5 = obj1++;
+	obj5.Outputdate();
 }
 
 
