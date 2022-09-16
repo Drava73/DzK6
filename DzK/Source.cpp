@@ -1,31 +1,6 @@
 #include<iostream>
+#include "Header.h"
 using namespace std;
-
-class SaveDate
-{
-
-	int date;
-
-
-public:
-	SaveDate(int dateN) { date = dateN; }
-	friend SaveDate operator+(const SaveDate& dateN, int value);
-	friend SaveDate operator-(const SaveDate& dateN, int value);
-	SaveDate operator++(void);
-	SaveDate operator++(int d);
-	SaveDate operator--(void);
-	SaveDate operator--(int d);
-	SaveDate& operator += (SaveDate obj);
-	SaveDate& operator -= (SaveDate obj);
-	int Getdate()const;
-		void Inputdate();
-	void Outputdate();
-
-	
-};
-
-
-
 
 SaveDate SaveDate::operator++(void)
 {
@@ -77,6 +52,36 @@ SaveDate operator-(const SaveDate& dateN, int value)
 	return SaveDate(dateN.date - value);
 }
 
+bool operator==(const SaveDate& obj, const SaveDate& obj2)
+{
+	return obj.date == obj2.date;
+}
+
+bool operator!=(const SaveDate& obj, const SaveDate& obj2)
+{
+	return obj.date != obj2.date;
+}
+
+bool operator>(const SaveDate& obj, const SaveDate& obj2)
+{
+	return obj.date > obj2.date;
+}
+
+bool operator<(const SaveDate& obj, const SaveDate& obj2)
+{
+	return obj.date < obj2.date;
+}
+
+bool operator>=(const SaveDate& obj, const SaveDate& obj2)
+{
+	return obj.date >= obj2.date;
+}
+
+bool operator<=(const SaveDate& obj, const SaveDate& obj2)
+{
+	return obj.date <= obj2.date;
+}
+
 int SaveDate::Getdate() const
 {
 	return 0;
@@ -115,6 +120,8 @@ int main()
 	obj6.Outputdate();
 	obj6 -= 1;
 	obj6.Outputdate();
+	bool tf = obj1 > obj6;
+	cout << endl << tf;
 }
 
 
