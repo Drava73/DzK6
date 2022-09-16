@@ -100,6 +100,11 @@ void SaveDate::Outputdate()
 	cout << endl << "Date: "<<date;
 }
 
+void SaveDate::Setdate(int a)
+{
+	date = a;
+}
+
 
 
 

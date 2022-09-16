@@ -24,6 +24,7 @@ public:
 	int Getdate()const;
 	void Inputdate();
 	void Outputdate();
+	void Setdate(int a);
 
 
 };
