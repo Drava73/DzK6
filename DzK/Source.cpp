@@ -2,30 +2,126 @@
 #include "Header.h"
 using namespace std;
 
-SaveDate SaveDate::operator++(void)
+SaveDate operator++ (const SaveDate& _date);
+SaveDate operator-- (const SaveDate& _date);
+
+SaveDate operator+ (const SaveDate& _date, int d);
+SaveDate operator- (const SaveDate& _date, int d);
+SaveDate operator+ (int d, const SaveDate& _date);
+SaveDate operator- (int d, const SaveDate& _date);
+
+SaveDate operator+= (SaveDate& _date, int d);
+SaveDate operator-= (SaveDate& _date, int d);
+SaveDate operator+= (int d, SaveDate& _date);
+SaveDate operator-= (int d, SaveDate& _date);
+
+bool operator> (const SaveDate& date_1, const SaveDate& date_2);
+bool operator< (const SaveDate& date_1, const SaveDate& date_2);
+bool operator>= (const SaveDate& date_1, const SaveDate& date_2);
+bool operator<= (const SaveDate& date_1, const SaveDate& date_2);
+bool operator== (const SaveDate& date_1, const SaveDate& date_2);
+bool operator!= (const SaveDate& date_1, const SaveDate& date_2);
+
+
+
+SaveDate operator++(const SaveDate& _date)
 {
-	date++;
-	return *this;
+	SaveDate date(_date);
+	date.increase(1);
+	return date;
 }
 
-SaveDate SaveDate::operator++(int d)
+SaveDate operator-- (const SaveDate& _date)
 {
-	date++;
-	return *this;
+	SaveDate date(_date);
+	date.decrease(1);
+	return date;
 }
 
-SaveDate SaveDate::operator--(void)
+SaveDate operator+ (const SaveDate& _date, int d)
 {
-	date--;
-	return *this;
+	SaveDate date(_date);
+	date.increase(d);
+	return date;
 }
 
-SaveDate SaveDate::operator--(int d)
+SaveDate operator- (const SaveDate& _date, int d)
 {
-	date--;
-	return *this;
+	SaveDate date(_date);
+	date.decrease(d);
+	return date;
 }
 
+SaveDate operator+ (int d, const SaveDate& _date)
+{
+	SaveDate date(_date);
+	date.increase(d);
+	return date;
+}
+
+SaveDate operator- (int d, const SaveDate& _date)
+{
+	SaveDate date(_date);
+	date.decrease(d);
+	return date;
+}
+
+SaveDate operator+= (SaveDate& _date, int d)
+{
+	_date.increase(d);
+	return _date;
+}
+
+SaveDate operator-= (SaveDate& _date, int d)
+{
+	_date.decrease(d);
+	return _date;
+}
+
+SaveDate operator+= (int d, SaveDate& _date)
+{
+	_date.increase(d);
+	return _date;
+}
+
+SaveDate operator-= (int d, SaveDate& _date)
+{
+	_date.decrease(d);
+	return _date;
+}
+
+bool operator> (const SaveDate& date_1, const SaveDate& date_2)
+{
+	return date_1.date > date_2.date;
+}
+
+bool operator< (const SaveDate& date_1, const SaveDate& date_2)
+{
+	return date_1.date < date_2.date;
+}
+
+bool operator>= (const SaveDate& date_1, const SaveDate& date_2)
+{
+	return date_1.date >= date_2.date;
+}
+
+bool operator<= (const SaveDate& date_1, const SaveDate& date_2)
+{
+	return date_1.date <= date_2.date;
+}
+
+bool operator== (const SaveDate& date_1, const SaveDate& date_2)
+{
+	return date_1.date == date_2.date;
+}
+
+bool operator!= (const SaveDate& date_1, const SaveDate& date_2)
+{
+	return date_1.date != date_2.date;
+	 
+}
+
+/*
 SaveDate& SaveDate::operator+=(SaveDate obj)
 {
 	
@@ -81,7 +177,7 @@ bool operator<=(const SaveDate& obj, const SaveDate& obj2)
 {
 	return obj.date <= obj2.date;
 }
-
+*/
 int SaveDate::Getdate() const
 {
 	return 0;
@@ -109,24 +205,7 @@ void SaveDate::Setdate(int a)
 
 
 
-int main()
-{
 
 
-	SaveDate obj1(5);
-	SaveDate obj6(1);
-	SaveDate obj2 = obj1 + 5;
-	obj2.Outputdate();
-	SaveDate obj3 = obj2 - 1;
-	obj3.Outputdate();
-	SaveDate obj5 = obj1++;
-	obj5.Outputdate();
-	obj6 += 1;
-	obj6.Outputdate();
-	obj6 -= 1;
-	obj6.Outputdate();
-	bool tf = obj1 > obj6;
-	cout << endl << tf;
-}
 
 
